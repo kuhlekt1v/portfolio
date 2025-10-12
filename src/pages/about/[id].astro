@@ -1,14 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
-import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getConfigurationCollection } from "../../lib/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("about");
   const { data: config } = await getConfigurationCollection();
   return posts.map((article) => ({
     params: { id: article.data.slug },
-    props: { 
+    props: {
       article: {
         ...article,
         data: {
@@ -24,6 +23,4 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 ---
 
-<BlogLayout frontmatter={article.data}>
-  <Content />
-</BlogLayout>
+<Content />

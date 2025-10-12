@@ -1,0 +1,19 @@
+---
+export type Props = {
+  text: string;
+  class?: string;
+  "aria-label"?: string;
+};
+
+const { text, class: className } = Astro.props;
+---
+
+<span
+  class:list={["zag-offset font-medium flex items-center f", className]}
+  aria-label={Astro.props["aria-label"]}
+>
+  <slot />
+  <p class="ps-3">
+    {text}
+  </p>
+</span>

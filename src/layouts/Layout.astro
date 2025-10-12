@@ -10,17 +10,32 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      href="/favicon-dark.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme:dark)"
+    />
+    <link
+      rel="icon"
+      href="/favicon-light.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme:light)"
+    />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://fonts.bunny.net/css?family=ibm-plex-mono:400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
-    
+
     <!-- Theme detection script - runs before page renders -->
     <script is:inline>
       const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
           return localStorage.getItem("theme") ?? "light";
         }
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -37,7 +52,7 @@ import "../styles/global.css";
 
       window.localStorage.setItem("theme", theme);
     </script>
-    
+
     <slot name="head" />
   </head>
   <body class="zag-bg zag-text zag-transition font-mono">
@@ -45,6 +60,6 @@ import "../styles/global.css";
     <main>
       <slot />
     </main>
-    <Footer />
   </body>
+  <Footer />
 </html>

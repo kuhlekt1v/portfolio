@@ -2,13 +2,13 @@
 # we need to prefix all configuration keys with an underscore.
 
 [_.site]
-baseUrl = "http://zaggonaut.dev"
+baseUrl = "http://localhost:4321/"
 
 [_.globalMeta]
-title = "Zaggonaut"
-description = "Retro-Inspired Theme & Built for Astro"
-longDescription = "Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and Astro."
-cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
+title = "Cody Sheridan"
+description = "Manufacturing Mindset. Modern Software Craftsmanship."
+longDescription = "Cody Sheridan is a software developer who brings a manufacturing mindset to modern software craftsmanship. Discover projectd and professional experience."
+cardImage = "https://zaggonaut.dev/michael-michael-dam-unsplash.webpdam-unsplash.webp"
 keywords = ["web development", "design", "technology"]
 
 [_.blogMeta]
@@ -32,17 +32,34 @@ longDescription = "The page you are looking for does not exist. Maybe it never e
 cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
 
 [_.hero]
-title = "Zaggonaut"
-subtitle = "Retro-Inspired Theme &<br />Built for Astro"
-image = "https://zaggonaut.dev/michael-dam-unsplash.webp"
+title = "Cody Sheridan"
+subtitle = "Manufacturing Mindset. Modern Software Craftsmanship."
+image = "http://localhost:4321/headshot-close.jpg"
 ctaText = "View Projects"
 ctaUrl = "/projects"
 
 [_.personal]
-name = "Zaggonaut"
-githubProfile = "https://github.com/RATIU5/zaggonaut"
-twitterProfile = "https://twitter.com"
-linkedinProfile = "https://linkedin.com/"
+name = "Cody Sheridan"
+
+[_.personal.email]
+text = "cody.sheridan@pm.me"
+url = "mailto:cody.sheridan@pm.me"
+
+[_.personal.location]
+text = "United States"
+# url intentionally omitted
+
+[_.personal.githubProfile]
+text = "GitHub"
+url = "https://github.com/kuhlekt1v"
+
+[_.personal.linkedinProfile]
+text = "LinkedIn"
+url = "https://www.linkedin.com/in/codysheridan/"
+
+[_.personal.portfolio]
+text = ""
+url = "https://github.com/kuhlekt1v/portfolio"
 
 [_.texts]
 articlesName = "Articles"
@@ -54,4 +71,4 @@ noProjects = "No projects found."
 [_.menu]
 home = "/"
 projects = "/projects"
-blog = "/blog"
+about = "/about"

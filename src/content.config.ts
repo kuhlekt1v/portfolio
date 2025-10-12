@@ -175,24 +175,61 @@ const configuration = defineCollection({
      */
     personal: z.object({
       /**
-       * The name of the site owner or author, used in various places throughout the site.
+       * The owner of the site
        */
-      name: z.string().default("Zaggonaut"),
+      name: z.string(),
+      /**
+       * The email address of the site owner or author,
+       * used in various places throughout the site.
+       */
+      email: z.object({
+        text: z.string(),
+        url: z.string().url(),
+      }),
+
+      /**
+       * The location where the site owner resides.
+       */
+      location: z.object({
+        text: z.string(),
+        url: z.string().url().optional(),
+      }),
 
       /**
        * The GitHub profile URL of the site owner or author.
        */
-      githubProfile: z.string().url().optional(),
+      githubProfile: z
+        .object({
+          text: z.string(),
+          url: z.string().url(),
+        })
+        .optional(),
 
       /**
        * The Twitter profile URL of the site owner or author.
        */
-      twitterProfile: z.string().url().optional(),
+      twitterProfile: z
+        .object({
+          text: z.string(),
+          url: z.string().url(),
+        })
+        .optional(),
 
       /**
        * The LinkedIn profile URL of the site owner or author.
        */
-      linkedinProfile: z.string().url().optional(),
+      linkedinProfile: z
+        .object({
+          text: z.string(),
+          url: z.string().url(),
+        })
+        .optional(),
+      portfolio: z
+        .object({
+          text: z.string(),
+          url: z.string().url(),
+        })
+        .optional(),
     }),
 
     /**
@@ -232,7 +269,7 @@ const configuration = defineCollection({
     menu: z.object({
       home: z.string().default("/"),
       projects: z.string().default("/projects"),
-      blog: z.string().default("/blog"),
+      about: z.string().default("/about"),
       /** Add other menu items here **/
     }),
   }),
@@ -242,8 +279,8 @@ const configuration = defineCollection({
  * Loader and schema for the blog collection.
  * It loads markdown files from the `content/blogs` directory and defines the schema for each blog post.
  */
-const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./content/blogs" }),
+const about = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./content/about" }),
   schema: z
     .object({
       /**
@@ -312,57 +349,59 @@ const blog = defineCollection({
  */
 const project = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./content/projects" }),
-  schema: z.object({
-    /**
-     * The title of the project.
-     */
-    title: z.string(),
-    
-    /**
-     * The slug for the project, used in the URL.
-     */
-    slug: z.string().optional(),
+  schema: z
+    .object({
+      /**
+       * The title of the project.
+       */
+      title: z.string(),
 
-    /**
-     * The short description of the project, used in Open Graph metadata and as a fallback for SEO.
-     */
-    description: z.string(),
+      /**
+       * The slug for the project, used in the URL.
+       */
+      slug: z.string().optional(),
 
-    /**
-     * The long description of the project, used in Open Graph metadata and as a fallback for SEO.
-     */
-    longDescription: z.string().optional(),
+      /**
+       * The short description of the project, used in Open Graph metadata and as a fallback for SEO.
+       */
+      description: z.string(),
 
-    /**
-     * The URL of the card image for social media sharing.
-     */
-    cardImage: z.string().url().optional(),
+      /**
+       * The long description of the project, used in Open Graph metadata and as a fallback for SEO.
+       */
+      longDescription: z.string().optional(),
 
-    /**
-     * The tags associated with the project, used for categorization and filtering.
-     */
-    tags: z.array(z.string()).optional(),
+      /**
+       * The URL of the card image for social media sharing.
+       */
+      cardImage: z.string().url().optional(),
 
-    /**
-     * The github repository URL for the project.
-     */
-    githubUrl: z.string().url().optional(),
+      /**
+       * The tags associated with the project, used for categorization and filtering.
+       */
+      tags: z.array(z.string()).optional(),
 
-    /**
-     * The live demo URL for the project, if applicable.
-     */
-    liveDemoUrl: z.string().url().optional(),
+      /**
+       * The github repository URL for the project.
+       */
+      githubUrl: z.string().url().optional(),
 
-    /**
-     * The timestamp of the project, used for sorting and displaying the date.
-     */
-    timestamp: z.date().transform((val) => new Date(val)),
+      /**
+       * The live demo URL for the project, if applicable.
+       */
+      liveDemoUrl: z.string().url().optional(),
 
-    /**
-     * Whether the project is featured on the homepage.
-     */
-    featured: z.boolean().default(false),
-  }).transform((data) => {
+      /**
+       * The timestamp of the project, used for sorting and displaying the date.
+       */
+      timestamp: z.date().transform((val) => new Date(val)),
+
+      /**
+       * Whether the project is featured on the homepage.
+       */
+      featured: z.boolean().default(false),
+    })
+    .transform((data) => {
       const slug =
         data.slug ??
         data.title
@@ -377,4 +416,4 @@ const project = defineCollection({
     }),
 });
 
-export const collections = { blog, project, configuration };
+export const collections = { about, project, configuration };

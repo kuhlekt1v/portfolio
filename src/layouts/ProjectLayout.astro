@@ -14,14 +14,14 @@ const { data: config } = await getConfigurationCollection();
 
 <Layout>
   <Fragment slot="head">
-    <title>{`${frontmatter.title} • ${config.personal.name}`}</title>
+    <title>{`${frontmatter.title} • ${config.personal.name.text}`}</title>
     <meta
       name="description"
       content={frontmatter.longDescription ?? frontmatter.description}
     />
     <meta
       property="og:title"
-      content={`${frontmatter.title} • ${config.personal.name}`}
+      content={`${frontmatter.title} • ${config.personal.name.text}`}
     />
     <meta property="og:description" content={frontmatter.description} />
     {
@@ -41,7 +41,7 @@ const { data: config } = await getConfigurationCollection();
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content={`${frontmatter.title} • ${config.personal.name}`}
+      content={`${frontmatter.title} • ${config.personal.name.text}`}
     />
     <meta name="twitter:description" content={frontmatter.description} />
     {
