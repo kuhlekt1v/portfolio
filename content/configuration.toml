@@ -11,23 +11,23 @@ longDescription = "Cody Sheridan is a software developer who brings a manufactur
 cardImage = "https://zaggonaut.dev/michael-michael-dam-unsplash.webpdam-unsplash.webp"
 keywords = ["web development", "design", "technology"]
 
-[_.blogMeta]
-title = "Zaggonaut Blog"
-description = "Practical wisdom, unfiltered thoughts, and hot takes."
-longDescription = "Web development, tech trends, and the occasional programming mishap."
-cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
-keywords = ["web development", "design", "technology"]
+[_.aboutMeta] 
+title = "About Cody Sheridan" 
+description = "Developer. Builder. Relentless problem-solver." 
+longDescription = "Learn more about Cody Sheridan — a developer who applies a manufacturing mindset to modern software craftsmanship. Explore his professional background, technical experience, and the principles that guide his work."
+cardImage = "https://zaggonaut.dev/cody-sheridan-profile.webp"
+keywords = ["resume", "software developer", "engineering mindset", "craftsmanship", "technology"] 
 
-[_.projectMeta]
-title = "Zaggonaut Projects"
-description = "A list of my web development projects and developer tools."
-longDescription = "All of my projects, including both frontend and full-stack applications."
-cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
-keywords = ["web development", "design", "technology"]
+[_.projectMeta] 
+title = "Projects by Cody Sheridan" 
+description = "A showcase of practical software craftsmanship — built with grit and precision." 
+longDescription = "Explore Cody Sheridan’s portfolio of projects — built on craftsmanship, curiosity, and a dedication to building things that work. Includes links to live apps and GitHub repositories."
+cardImage = "https://zaggonaut.dev/projects-cover.webp" 
+keywords = ["portfolio", "projects", "software craftsmanship", "frontend", "full stack"]
 
 [_.notFoundMeta]
-title = "Zaggonaut 404"
-description = "The page you are looking for does not exist."
+title = "Cody Sheridan 404"
+description = "Looks like this page went off the rails."
 longDescription = "The page you are looking for does not exist. Maybe it never existed. Spooky."
 cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
 
@@ -62,7 +62,7 @@ text = ""
 url = "https://github.com/kuhlekt1v/portfolio"
 
 [_.texts]
-articlesName = "Articles"
+aboutName= "About Me"
 projectsName = "Projects"
 viewAll = "View All"
 noArticles = "No articles found."

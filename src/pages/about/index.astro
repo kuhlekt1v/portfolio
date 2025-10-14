@@ -5,39 +5,35 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSnippet from "../../components/ArticleSnippet.astro";
 import Section from "../../components/common/Section.astro";
 
-const articles = (await getCollection("about")).sort(
-  (a, b) => b.data.timestamp.valueOf() - a.data.timestamp.valueOf(),
-);
-
 const { data: config } = await getConfigurationCollection();
 ---
 
 <Layout>
   <Fragment slot="head">
-    <title>{config.blogMeta.title}</title>
+    <title>{config.aboutMeta.title}</title>
     <meta
       name="description"
-      content={config.blogMeta.longDescription ?? config.blogMeta.description}
+      content={config.aboutMeta.longDescription ?? config.aboutMeta.description}
     />
-    <meta property="og:title" content={config.blogMeta.title} />
-    <meta property="og:description" content={config.blogMeta.description} />
+    <meta property="og:title" content={config.aboutMeta.title} />
+    <meta property="og:description" content={config.aboutMeta.description} />
     {
-      config.blogMeta.keywords && (
-        <meta name="keywords" content={config.blogMeta.keywords.join(", ")} />
+      config.aboutMeta.keywords && (
+        <meta name="keywords" content={config.aboutMeta.keywords.join(", ")} />
       )
     }
     {
-      config.blogMeta.cardImage && (
-        <meta property="og:image" content={config.blogMeta.cardImage} />
+      config.aboutMeta.cardImage && (
+        <meta property="og:image" content={config.aboutMeta.cardImage} />
       )
     }
     <meta property="og:url" content={`${config.site.baseUrl}/blog`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={config.blogMeta.title} />
-    <meta name="twitter:description" content={config.blogMeta.description} />
+    <meta name="twitter:title" content={config.aboutMeta.title} />
+    <meta name="twitter:description" content={config.aboutMeta.description} />
     {
-      config.blogMeta.cardImage && (
-        <meta name="twitter:image" content={config.blogMeta.cardImage} />
+      config.aboutMeta.cardImage && (
+        <meta name="twitter:image" content={config.aboutMeta.cardImage} />
       )
     }
     <meta http-equiv="content-language" content="en" />
@@ -47,23 +43,8 @@ const { data: config } = await getConfigurationCollection();
   <Section class="my-8">
     <div class="flex items-center gap-4 pt-8 pb-16">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">
-        {config.texts.articlesName}
+        {config.texts.aboutName}
       </h1>
     </div>
-    <ul>
-      {
-        articles.map((article) => (
-          <li>
-            <ArticleSnippet
-              title={article.data.title}
-              description={article.data.description}
-              duration={`${article.data.readTime} min`}
-              url={`${config.site.baseUrl}/blog/${article.data.slug}`}
-              timestamp={article.data.timestamp}
-            />
-          </li>
-        ))
-      }
-    </ul>
   </Section>
 </Layout>
