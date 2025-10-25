@@ -112,9 +112,14 @@
   ],
   "certifications": [
     {
+        "title": "ITIL 4 Foundation Certificate in IT Service Management",
+        "affiliation": "ITIL", 
+        "date": "October 2025"
+    },
+    {
       "title": "Registered Scrum Master",
       "affiliation": "Scrum Inc.",
-      "date": "September 2022"
+      "date": "September 2025"
     },
     {
       "title": "Gregor Ojstersek Senior Engineer Lead Cohort",
@@ -124,7 +129,7 @@
     {
       "title": "Leadership Mastermind Program",
       "affiliation": "RIT Executive Education",
-      "date": "October 2025"
+      "date": "October 2024"
     },
     {
       "title": "Microsoft Certified: Azure Fundamentals",
