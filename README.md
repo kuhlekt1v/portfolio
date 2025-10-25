@@ -1,17 +1,11 @@
 ![Zaggonaut, a retro-inspired theme for Astro.](./images/README.png)
 
-Cody Sheridan's development portfolio and resume site based on RATIU5's Zaggonaut Astro theme.
+[Cody Sheridan's development portfolio](https://codysheridan.com) and resume site based on [RATIU5's Zaggonaut](https://github.com/RATIU5/zaggonaut) Astro theme.
 Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and of course, Astro.
-
-> [!NOTE]  
-> Introducing Zaggonaut 2.0!
-> This is a complete rewrite of the internal content layer, making use of Astro's new Content Collections feature, among other enhancements.
-
-If you are looking for the original Zaggonaut theme, you can find it [on the v1 branch](https://github.com/RATIU5/zaggonaut/tree/v1).
 
 ## Getting Started
 
-[View the demo](https://zaggonaut.dev) or [view the source code](https://github.com/RATIU5/zaggonaut).
+[View the demo](https://zaggonaut.dev) or [view the original source code](https://github.com/RATIU5/zaggonaut).
 
 Alternatively, you can create a new Astro project with Zaggonaut like this:
 
@@ -59,7 +53,7 @@ Zaggonaut uses the following CSS variables:
 
 - `content/configuration.toml`: This file contains the site configuration, such as metadata, social links, and text content.
 
-- `content/blogs/`: This directory contains your blog posts. Each post is a Markdown file with metadata in the frontmatter at the top.
+- `content/resume.json`: This file contains a professional resume displayed on the about page.
 
 - `content/projects/`: This directory contains your projects. Each project is a Markdown file also with metadata in the frontmatter.
 
