@@ -1,4 +1,6 @@
-![Zaggonaut, a retro-inspired theme for Astro.](./images/README.png)
+<p align="center">
+  <img src="./images/README.png" alt="Cody Sheridan home page, inspired by Zaggonaut]" />
+</p>
 
 [Cody Sheridan's development portfolio](https://codysheridan.com) and resume site based on [RATIU5's Zaggonaut](https://github.com/RATIU5/zaggonaut) Astro theme.
 Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and of course, Astro.
