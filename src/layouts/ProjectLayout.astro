@@ -1,7 +1,6 @@
 ---
 import { getConfigurationCollection, processArticleDate } from "../lib/utils";
 import type { ProjectFrontmatter } from "../lib/types";
-import Prose from "../components/Prose.astro";
 import Layout from "./Layout.astro";
 import Section from "../components/common/Section.astro";
 import Anchor from "../components/common/Anchor.astro";
@@ -89,8 +88,5 @@ const { data: config } = await getConfigurationCollection();
         }
       </div>
     </div>
-    <Prose>
-      <slot />
-    </Prose>
   </Section>
 </Layout>

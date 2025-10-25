@@ -2,39 +2,39 @@
 # we need to prefix all configuration keys with an underscore.
 
 [_.site]
-baseUrl = "http://localhost:4321/"
+baseUrl = "http://codysheridan.com/"
 
 [_.globalMeta]
 title = "Cody Sheridan"
 description = "Manufacturing Mindset. Modern Software Craftsmanship."
 longDescription = "Cody Sheridan is a software developer who brings a manufacturing mindset to modern software craftsmanship. Discover projectd and professional experience."
-cardImage = "https://zaggonaut.dev/michael-michael-dam-unsplash.webpdam-unsplash.webp"
+cardImage = "https://codysheridan.com/headshot-close.jpg"
 keywords = ["web development", "design", "technology"]
 
 [_.aboutMeta] 
 title = "About Cody Sheridan" 
 description = "Developer. Builder. Relentless problem-solver." 
 longDescription = "Learn more about Cody Sheridan — a developer who applies a manufacturing mindset to modern software craftsmanship. Explore his professional background, technical experience, and the principles that guide his work."
-cardImage = "https://zaggonaut.dev/cody-sheridan-profile.webp"
+cardImage = "https://codysheridan.com/headshot-close.jpg"
 keywords = ["resume", "software developer", "engineering mindset", "craftsmanship", "technology"] 
 
 [_.projectMeta] 
 title = "Projects by Cody Sheridan" 
 description = "A showcase of practical software craftsmanship — built with grit and precision." 
 longDescription = "Explore Cody Sheridan’s portfolio of projects — built on craftsmanship, curiosity, and a dedication to building things that work. Includes links to live apps and GitHub repositories."
-cardImage = "https://zaggonaut.dev/projects-cover.webp" 
+cardImage = "https://codysheridan.com/headshot-close.jpg"
 keywords = ["portfolio", "projects", "software craftsmanship", "frontend", "full stack"]
 
 [_.notFoundMeta]
 title = "Cody Sheridan 404"
 description = "Looks like this page went off the rails."
 longDescription = "The page you are looking for does not exist. Maybe it never existed. Spooky."
-cardImage = "https://zaggonaut.dev/michael-dam-unsplash.webp"
+cardImage = "https://codysheridan.com/headshot-close.jpg"
 
 [_.hero]
 title = "Cody Sheridan"
 subtitle = "Manufacturing Mindset. Modern Software Craftsmanship."
-image = "http://localhost:4321/headshot-close.jpg"
+image = "https://codysheridan.com/headshot-close.jpg"
 ctaText = "View Projects"
 ctaUrl = "/projects"
 
