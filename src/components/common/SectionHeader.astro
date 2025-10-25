@@ -1,0 +1,18 @@
+---
+type Props = {
+  highlight?: string;
+  text?: string;
+  subtext?: string;
+};
+
+import Section from "./Section.astro";
+import SectionSubtitle from "./SectionSubtitle.astro";
+
+const { highlight = "", text = "", subtext } = Astro.props;
+---
+
+<Section class="mb-4" padding={0}>
+  <SectionSubtitle highlight={highlight} text={text} mb={2} />
+  {subtext && <p class="font-base text-lg mb-6">{subtext}</p>}
+  <slot />
+</Section>

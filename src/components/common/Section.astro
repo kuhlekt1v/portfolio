@@ -1,7 +1,15 @@
 ---
-const { id, class: className } = Astro.props;
+type Props = {
+  id?: string;
+  class?: string;
+  padding?: number;
+};
+
+const { id, class: className, padding = 4 } = Astro.props;
+
+const paddingClass = `p-${padding}`;
 ---
 
-<section id={id} class:list={["p-4 max-w-2xl mx-auto", className]}>
+<section id={id} class:list={[paddingClass, "max-w-2xl mx-auto", className]}>
   <slot />
 </section>
