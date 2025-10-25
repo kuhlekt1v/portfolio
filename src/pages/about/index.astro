@@ -1,13 +1,22 @@
 ---
 import { getConfigurationCollection } from "../../lib/utils";
 import type { TocItem } from "../../lib/TocItem";
+import Chip from "../../components/common/Chip.astro";
 import SectionTitle from "../../components/common/SectionTitle.astro";
 import SectionSubtitle from "../../components/common/SectionSubtitle.astro";
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/common/Section.astro";
 import TableOfContents from "../../components/common/TableOfContents.astro";
 import resumeData from "../../../content/resume.json";
-import type { Resume, ExperienceEntry } from "../../lib/resume";
+import type {
+  Resume,
+  ExperienceEntry,
+  EducationEntry,
+  CertificationEntry,
+} from "../../lib/resume";
+
+import SectionHeader from "../../components/common/SectionHeader.astro";
+
 const { data: config } = await getConfigurationCollection();
 
 const resume: Resume = resumeData;
@@ -72,36 +81,76 @@ console.log(resume.experience);
       </h1>
     </div>
   </Section>
-  <Section>
+  <Section class="my-4">
     <p>{aboutText}</p>
-    <TableOfContents items={tocItems} class="my-16" />
+    <TableOfContents items={tocItems} class="mt-8" />
   </Section>
   <Section id="professional-experience" class="my-4">
-    <SectionTitle title="Professional Experience" />
+    <SectionTitle title="Professional Experience" mb={6} />
     {
-      resume.experience.map((entry: ExperienceEntry) => (
-        <Section class="mb-4 p-0">
-          <SectionSubtitle
-            highlight={entry.company}
-            text={`— ${entry.title}`}
-            mb={2}
-          />
-          <p class="font-base text-lg mb-4">
-            {entry.date} | {entry.location}
-          </p>
-          <ul>
+      resume.experience.map((entry: ExperienceEntry, i: number) => (
+        <SectionHeader
+          highlight={entry.company}
+          text={`— ${entry.title}`}
+          subtext={`${entry.date} | ${entry.location}`}
+        >
+          <ul class="list-disc list-inside space-y-2 text-justify mb-4">
             {entry.details.map((detail: string) => (
               <li>{detail}</li>
             ))}
           </ul>
-        </Section>
+          <Chip tags={entry.tags} />
+          <hr
+            class:list={[
+              "mt-4",
+              i !== resume.experience.length - 1
+                ? ["zag-muted", "mb-8"]
+                : "zag-border-b",
+            ]}
+          />
+        </SectionHeader>
+      ))
+    }
+  </Section>
+  <Section id="education" class="my-4">
+    <SectionTitle title="Education" />
+    {
+      resume.education.map((edu: EducationEntry, i: number) => (
+        <SectionHeader
+          highlight={edu.institution}
+          text={`— ${edu.degree}`}
+          subtext={`${edu.graduationYear} | ${edu.location}`}
+        >
+          {edu.honors.length >= 1 && (
+            <p>
+              <span class="font-bold">Honors</span>: {edu.honors.join(", ")}
+            </p>
+          )}
+          <p>
+            <span class="font-bold">Courses</span>: {edu.courses.join(", ")}
+          </p>
+          <hr
+            class:list={[
+              "mt-4",
+              i !== resume.education.length - 1
+                ? ["zag-muted", "mb-8"]
+                : "zag-border-b",
+            ]}
+          />
+        </SectionHeader>
+      ))
+    }
+  </Section>
+  <Section id="certifications" class="my-4">
+    <SectionTitle title="Certifications" />
+    {
+      resume.certifications.map((cert: CertificationEntry) => (
+        <SectionHeader
+          highlight={cert.title}
+          text={`— ${cert.affiliation}`}
+          subtext={cert.date}
+        />
       ))
     }
   </Section>
 </Layout>
-<Section id="education" class="my-4">
-  <SectionTitle title="Education" />
-</Section>
-<Section id="certifications" class="my-4">
-  <SectionTitle title="Certifications" />
-</Section>

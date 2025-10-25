@@ -14,6 +14,7 @@ export interface ExperienceEntry {
   date: string;
   location: string;
   details: string[];
+  tags: string[];
 }
 
 export interface EducationEntry {

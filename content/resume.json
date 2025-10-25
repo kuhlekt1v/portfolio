@@ -17,7 +17,14 @@
         "Improved CI/CD and Agile adoption for the Solumina G8 platform, designing automated deployment processes with GitHub and Jira.",
         "Maintained and expanded MES onboarding experience with SDK setup guides, CI/CD templates, and best practices documentation.",
         "Supported the OACIS public-facing landing page with ReactJS, mentoring junior developers through code reviews and pair programming."
-      ]
+      ],
+        "tags": [
+          "Python",
+          "ReactJS",
+          "GitHub",
+          "CI/CD"
+        ]
+      
     },
     {
       "company": "Pratt & Whitney",
@@ -29,7 +36,13 @@
         "Upgraded Angular Core/Material from v10 → v15, resolving compatibility issues and improving stability.",
         "Agile champion for team, achieving Agile Champion Certification and completing Scrum@Scale training.",
         "Mentored and reviewed code for two offshore junior developers."
-      ]
+      ],
+    "tags": [
+      "Angular",
+      "C#",
+      "Agile/Scrum",
+      "Mentorship"
+    ]
     },
     {
       "company": "Pratt & Whitney",
@@ -41,7 +54,8 @@
         "Developed a .NET Core + React interface to capture critical metadata, closing gaps in the OACIS pipeline.",
         "Engineered Python ETL solutions for raw machine data, optimizing formats for OLAP and cloud storage.",
         "Achieved measurable results: reduced machining cycle time by 4.4 hours per part across 43 machines driving $574K annual savings."
-      ]
+      ],
+      "tags": ["Azure", ".NET Core", "ReactJS", "Python"]
     },
     {
       "company": "Toolio Rentals",
@@ -52,7 +66,13 @@
         "Architected and delivered a cross-platform rental order app (iOS, Android, Web) with Angular Ionic and Supabase.",
         "Integrated Stripe checkout (Apple Pay, Google Pay) for seamless multi-platform payments.",
         "Deployed via Netlify with GitHub Actions CI/CD; managed DevOps as sole developer."
-      ]
+      ],
+    "tags": [
+      "Angular Ionic",
+      "Supabase",
+      "Stripe",
+      "CI/CD"
+    ]
     },
     {
       "company": "Lee Company",
@@ -63,7 +83,13 @@
         "Developed a parts tracking application using .NET MVC, JavaScript, SQL, and Bootstrap, eliminating manual data entry and enhancing operational efficiency.",
         "Streamlined data management processes via automated PowerShell scripts.",
         "Automated reporting with PowerShell, SQL, and Batch scripting for CPK quality control and ISO 9000 compliance."
-      ]
+    ],
+    "tags": [
+      ".NET MVC",
+      "JavaScript",
+      "SQL",
+      "PowerShell"
+    ]
     }
   ],
   "education": [
