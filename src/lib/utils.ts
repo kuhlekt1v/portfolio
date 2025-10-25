@@ -1,4 +1,5 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 /**
  * Shortens a string by removing words at the end until it fits within a certain length.
@@ -48,4 +49,3 @@ export const getConfigurationCollection = async (): Promise<
   configCache = configs[0];
   return configs[0];
 };
-

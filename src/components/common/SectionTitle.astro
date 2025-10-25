@@ -1,0 +1,9 @@
+---
+export type Props = {
+  title: string;
+  mb?: number;
+};
+const { title, mb = 4 } = Astro.props;
+---
+
+<h2 class={`font-display text-2xl mb-${mb}`}>{title}</h2>

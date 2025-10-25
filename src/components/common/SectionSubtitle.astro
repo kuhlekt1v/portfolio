@@ -1,0 +1,13 @@
+---
+export type Props = {
+  highlight: string;
+  text?: string;
+  mb?: number;
+};
+
+const { highlight, text, mb = 4 } = Astro.props;
+---
+
+<h3 class={`font-mono font-medium text-xl mb-${mb}`}>
+  <span class="font-bold">{highlight}</span>{text && ` ${text}`}
+</h3>

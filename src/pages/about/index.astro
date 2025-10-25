@@ -1,11 +1,36 @@
 ---
-import { getCollection } from "astro:content";
 import { getConfigurationCollection } from "../../lib/utils";
+import type { TocItem } from "../../lib/TocItem";
+import SectionTitle from "../../components/common/SectionTitle.astro";
+import SectionSubtitle from "../../components/common/SectionSubtitle.astro";
 import Layout from "../../layouts/Layout.astro";
-import ArticleSnippet from "../../components/ArticleSnippet.astro";
 import Section from "../../components/common/Section.astro";
-
+import TableOfContents from "../../components/common/TableOfContents.astro";
+import resumeData from "../../../content/resume.json";
+import type { Resume, ExperienceEntry } from "../../lib/resume";
 const { data: config } = await getConfigurationCollection();
+
+const resume: Resume = resumeData;
+
+const currentYear = new Date().getFullYear();
+const manufacturingYears = currentYear - resume.manufacturingStartYear;
+const azureYears = currentYear - resume.azureStartYear;
+
+let aboutText = resume.about;
+aboutText = aboutText.replace(
+  "{{manufacturingYears}}",
+  manufacturingYears.toString(),
+);
+
+aboutText = aboutText.replace("{{azureYears}}", azureYears.toString());
+
+const tocItems: TocItem[] = [
+  { text: "Professional Experience", link: "#professional-experience" },
+  { text: "Education", link: "#education" },
+  { text: "Certifications", link: "#certifications" },
+];
+
+console.log(resume.experience);
 ---
 
 <Layout>
@@ -41,10 +66,42 @@ const { data: config } = await getConfigurationCollection();
     <link rel="canonical" href={`${config.site.baseUrl}/blog`} />
   </Fragment>
   <Section class="my-8">
-    <div class="flex items-center gap-4 pt-8 pb-16">
+    <div class="flex items-center gap-4 pt-8">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">
         {config.texts.aboutName}
       </h1>
     </div>
   </Section>
+  <Section>
+    <p>{aboutText}</p>
+    <TableOfContents items={tocItems} class="my-16" />
+  </Section>
+  <Section id="professional-experience" class="my-4">
+    <SectionTitle title="Professional Experience" />
+    {
+      resume.experience.map((entry: ExperienceEntry) => (
+        <Section class="mb-4 p-0">
+          <SectionSubtitle
+            highlight={entry.company}
+            text={`— ${entry.title}`}
+            mb={2}
+          />
+          <p class="font-base text-lg mb-4">
+            {entry.date} | {entry.location}
+          </p>
+          <ul>
+            {entry.details.map((detail: string) => (
+              <li>{detail}</li>
+            ))}
+          </ul>
+        </Section>
+      ))
+    }
+  </Section>
 </Layout>
+<Section id="education" class="my-4">
+  <SectionTitle title="Education" />
+</Section>
+<Section id="certifications" class="my-4">
+  <SectionTitle title="Certifications" />
+</Section>

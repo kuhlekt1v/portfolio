@@ -1,0 +1,25 @@
+---
+import type { TocItem } from "../../lib/TocItem";
+export type Props = {
+  items: TocItem[];
+  class?: string;
+};
+
+import Anchor from "./Anchor.astro";
+const { items, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "zag-border-b zag-transition pb-4 gap-1 flex flex-col",
+    className,
+  ]}
+>
+  {
+    items.map((item) => (
+      <Anchor url={item.link} aria-label={`link to ${item.text} section`}>
+        <p class="anchor-text">{item.text}</p>
+      </Anchor>
+    ))
+  }
+</div>

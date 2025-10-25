@@ -178,6 +178,12 @@ const configuration = defineCollection({
        * The owner of the site
        */
       name: z.string(),
+
+      /**
+       * Technologies of which the owner of the site has experience.
+       */
+      technologies: z.array(z.string()).optional(),
+
       /**
        * The email address of the site owner or author,
        * used in various places throughout the site.

@@ -40,6 +40,7 @@ ctaUrl = "/projects"
 
 [_.personal]
 name = "Cody Sheridan"
+technologies = ["csharp", "java", "python", "javascript", "typescript", "react", "angular", "sql", "supabase", "linux", "powershell"]
 
 [_.personal.email]
 text = "cody.sheridan@pm.me"
