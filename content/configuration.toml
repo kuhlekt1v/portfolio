@@ -66,8 +66,8 @@ url = "https://github.com/kuhlekt1v/portfolio"
 aboutName= "About Me"
 projectsName = "Projects"
 viewAll = "View All"
-noArticles = "No articles found."
-noProjects = "No projects found."
+noArticles = "Articles coming soon!"
+noProjects = "Projects coming soon!"
 
 [_.menu]
 home = "/"

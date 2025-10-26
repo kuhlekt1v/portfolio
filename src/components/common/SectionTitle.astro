@@ -2,8 +2,10 @@
 export type Props = {
   title: string;
   mb?: number;
+  class?: string;
 };
-const { title, mb = 4 } = Astro.props;
+const { title, class: className, mb = 4 } = Astro.props;
+const marginClass = `mb-${mb}`;
 ---
 
-<h2 class={`font-display text-2xl mb-${mb}`}>{title}</h2>
+<h2 class:list={["font-display text-2xl", marginClass, className]}>{title}</h2>
