@@ -1,9 +1,8 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
-@variant dark (&:where(.dark, .dark *));
-
 @import "devicon/devicon.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: "Literata Variable";
@@ -39,26 +38,22 @@
  free to change them! 
 */
 
-@theme {
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-display: "press-start-2p", ui-monospace, monospace;
-  --font-serif:
-    "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif;
-  --color-zag-dark: var(--color-neutral-900);
-  --color-zag-dark-opaque: oklch(from var(--color-neutral-900) l c h / 0.5);
-  --color-zag-light: var(--color-neutral-100);
-  --color-zag-light-opaque: oklch(from var(--color-neutral-100) l c h / 0.5);
-  --color-zag-dark-muted: var(--color-neutral-600);
-  --color-zag-light-muted: var(--color-neutral-400);
-  --color-zag-accent-light: var(--color-emerald-400);
-  --color-zag-accent-light-muted: var(--color-emerald-300);
-  --color-zag-accent-dark: var(--color-emerald-600);
-  --color-zag-accent-dark-muted: var(--color-emerald-800);
-}
-
 @layer base {
   :root {
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-display: "press-start-2p", ui-monospace, monospace;
+    --font-serif: "Literata Variable", ui-serif, Georgia, Cambria,
+      "Times New Roman", Times, serif;
+    --color-zag-dark: rgb(23 23 23);
+    --color-zag-dark-opaque: rgb(23 23 23 / 0.5);
+    --color-zag-light: rgb(245 245 245);
+    --color-zag-light-opaque: rgb(245 245 245 / 0.5);
+    --color-zag-dark-muted: rgb(82 82 82);
+    --color-zag-light-muted: rgb(163 163 163);
+    --color-zag-accent-light: rgb(52 211 153);
+    --color-zag-accent-light-muted: rgb(110 231 183);
+    --color-zag-accent-dark: rgb(5 150 105);
+    --color-zag-accent-dark-muted: rgb(6 95 70);
     --zag-stroke: 2px;
     --zag-offset: 6px;
     --zag-transition-duration: 0.15s;
