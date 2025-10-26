@@ -34,7 +34,7 @@ cardImage = "https://codysheridan.com/sheridan-meta.png"
 [_.hero]
 title = "Cody Sheridan"
 subtitle = "Manufacturing Mindset. Modern Software Craftsmanship."
-image = "https://codysheridan.com/sheridan-meta.png"
+image = "https://codysheridan.com/headshot-close.jpg"
 ctaText = "View Projects"
 ctaUrl = "/projects"
 
