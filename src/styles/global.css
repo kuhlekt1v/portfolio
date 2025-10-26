@@ -47,8 +47,8 @@
     serif;
   --color-zag-dark: var(--color-neutral-900);
   --color-zag-dark-opaque: oklch(from var(--color-neutral-900) l c h / 0.5);
-  --color-zag-light: var(--color-neutral-100);
-  --color-zag-light-opaque: oklch(from var(--color-neutral-100) l c h / 0.5);
+  --color-zag-light: var(--color-neutral-200);
+  --color-zag-light-opaque: oklch(from var(--color-neutral-200) l c h / 0.5);
   --color-zag-dark-muted: var(--color-neutral-600);
   --color-zag-light-muted: var(--color-neutral-400);
   --color-zag-accent-light: var(--color-emerald-400);

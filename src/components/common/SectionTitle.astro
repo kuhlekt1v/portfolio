@@ -5,7 +5,20 @@ export type Props = {
   class?: string;
 };
 const { title, class: className, mb = 4 } = Astro.props;
-const marginClass = `mb-${mb}`;
+const marginMap: Record<number, string> = {
+  0: "mb-0",
+  1: "mb-1",
+  2: "mb-2",
+  3: "mb-3",
+  4: "mb-4",
+  5: "mb-5",
+  6: "mb-6",
+  8: "mb-8",
+  10: "mb-10",
+  12: "mb-12",
+};
+
+const marginClass = marginMap[mb] ?? "mb-4";
 ---
 
 <h2 class:list={["font-display text-2xl", marginClass, className]}>{title}</h2>
