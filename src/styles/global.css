@@ -42,8 +42,7 @@
   :root {
     --font-mono: "IBM Plex Mono", ui-monospace, monospace;
     --font-display: "press-start-2p", ui-monospace, monospace;
-    --font-serif: "Literata Variable", ui-serif, Georgia, Cambria,
-      "Times New Roman", Times, serif;
+    --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --color-zag-dark: rgb(23 23 23);
     --color-zag-dark-opaque: rgb(23 23 23 / 0.5);
     --color-zag-light: rgb(245 245 245);
