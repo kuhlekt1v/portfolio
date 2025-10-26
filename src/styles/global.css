@@ -1,8 +1,9 @@
-@import "devicon/devicon.min.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @variant dark (&:where(.dark, .dark *));
+
+@import "devicon/devicon.min.css";
 
 @font-face {
   font-family: "Literata Variable";
