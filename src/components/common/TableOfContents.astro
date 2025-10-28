@@ -1,11 +1,12 @@
 ---
+import Anchor from "./Anchor.astro";
 import type { TocItem } from "../../lib/TocItem";
-export type Props = {
+
+type Props = {
   items: TocItem[];
   class?: string;
 };
 
-import Anchor from "./Anchor.astro";
 const { items, class: className } = Astro.props;
 ---
 

@@ -1,21 +1,23 @@
 ---
 import { getConfigurationCollection } from "../../lib/utils";
-import type { TocItem } from "../../lib/TocItem";
-import Chip from "../../components/common/Chip.astro";
-import SectionTitle from "../../components/common/SectionTitle.astro";
-import SectionSubtitle from "../../components/common/SectionSubtitle.astro";
-import Layout from "../../layouts/Layout.astro";
-import Section from "../../components/common/Section.astro";
-import TableOfContents from "../../components/common/TableOfContents.astro";
+
 import resumeData from "../../../content/resume.json";
+import Layout from "../../layouts/Layout.astro";
+import Collapsible from "../../components/about/Collapsible.tsx";
+
+import Chip from "../../components/common/Chip.astro";
+import Section from "../../components/common/Section.astro";
+import SectionTitle from "../../components/common/SectionTitle.astro";
+import SectionHeader from "../../components/common/SectionHeader.astro";
+import TableOfContents from "../../components/common/TableOfContents.astro";
+
 import type {
   Resume,
   ExperienceEntry,
   EducationEntry,
   CertificationEntry,
 } from "../../lib/resume";
-
-import SectionHeader from "../../components/common/SectionHeader.astro";
+import type { TocItem } from "../../lib/TocItem";
 
 const { data: config } = await getConfigurationCollection();
 
@@ -92,11 +94,13 @@ const tocItems: TocItem[] = [
           text={`— ${entry.title}`}
           subtext={`${entry.date} | ${entry.location}`}
         >
-          <ul class="list-disc list-inside space-y-2 text-justify mb-4">
-            {entry.details.map((detail: string) => (
-              <li>{detail}</li>
-            ))}
-          </ul>
+          <Collapsible client:load>
+            <ul class="list-disc list-inside space-y-2 text-justify mb-4">
+              {entry.details.map((detail: string) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </Collapsible>
           <Chip tags={entry.tags} />
           <hr
             class:list={[
@@ -119,14 +123,17 @@ const tocItems: TocItem[] = [
           text={`— ${edu.degree}`}
           subtext={`${edu.graduationYear} | ${edu.location}`}
         >
-          {edu.honors.length >= 1 && (
+          <Collapsible client:load>
+            {edu.honors.length >= 1 && (
+              <p>
+                <span class="font-bold">Honors</span>: {edu.honors.join(", ")}
+              </p>
+            )}
             <p>
-              <span class="font-bold">Honors</span>: {edu.honors.join(", ")}
+              <span class="font-bold">Courses</span>: {edu.courses.join(", ")}
             </p>
-          )}
-          <p>
-            <span class="font-bold">Courses</span>: {edu.courses.join(", ")}
-          </p>
+          </Collapsible>
+
           <hr
             class:list={[
               "mt-4",

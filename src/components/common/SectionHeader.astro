@@ -1,12 +1,12 @@
 ---
+import Section from "./Section.astro";
+import SectionSubtitle from "./SectionSubtitle.astro";
+
 type Props = {
   highlight?: string;
   text?: string;
   subtext?: string;
 };
-
-import Section from "./Section.astro";
-import SectionSubtitle from "./SectionSubtitle.astro";
 
 const { highlight = "", text = "", subtext } = Astro.props;
 ---

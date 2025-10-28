@@ -1,6 +1,6 @@
 ---
-import Icon from "../components/common/Icon.astro";
-import { getConfigurationCollection } from "../lib/utils";
+import Icon from "../../components/common/Icon.astro";
+import { getConfigurationCollection } from "../../lib/utils";
 
 const { data: config } = await getConfigurationCollection();
 
@@ -49,7 +49,7 @@ const svgPaths = await Promise.all(
     }
   }
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll 40s linear infinite;
   }
 
   @media (min-width: 768px) {

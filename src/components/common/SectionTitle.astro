@@ -4,7 +4,9 @@ export type Props = {
   mb?: number;
   class?: string;
 };
+
 const { title, class: className, mb = 4 } = Astro.props;
+
 const marginMap: Record<number, string> = {
   0: "mb-0",
   1: "mb-1",
