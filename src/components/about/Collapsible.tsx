@@ -11,7 +11,7 @@ export default function Collapsible({ children }: Props) {
     return (
         <>
             <section class="block md:hidden">
-                <p class="mb-4" role="button" onClick={() => setOpen(!open)}>{previewText}</p>
+                <button class="mb-4" role="button" onClick={() => setOpen(!open)} aria-label="Collapse or expand button">{previewText}</button>
                 {open && <div>{children}</div>}
             </section>
             <div class="hidden md:block">
