@@ -24,10 +24,31 @@ import "../styles/global.css";
     />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       href="https://fonts.bunny.net/css?family=ibm-plex-mono:400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/fontsource/fonts/literata:vf@latest/latin-opsz-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/fontsource/fonts/press-start-2p@latest/latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Preload the LCP image so the browser gives it priority -->
+    <link rel="preload" as="image" href="/headshot-close.webp" />
+
+    <!-- Allow pages to inject additional head content -->
+    <slot name="head" />
 
     <!-- Theme detection script - runs before page renders -->
     <script is:inline>
