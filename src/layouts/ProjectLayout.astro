@@ -74,14 +74,24 @@ const { data: config } = await getConfigurationCollection();
       <div class="flex gap-2">
         {
           frontmatter.githubUrl ? (
-            <Anchor url={frontmatter.githubUrl} class="text-base" external>
+            <Anchor
+              url={frontmatter.githubUrl}
+              class="text-base"
+              external
+              aria-label="External GitHub link"
+            >
               GitHub
             </Anchor>
           ) : null
         }
         {
           frontmatter.liveDemoUrl ? (
-            <Anchor url={frontmatter.liveDemoUrl} class="text-base" external>
+            <Anchor
+              url={frontmatter.liveDemoUrl}
+              class="text-base"
+              external
+              aria-label="External demo link"
+            >
               Demo
             </Anchor>
           ) : null

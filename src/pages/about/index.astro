@@ -95,11 +95,13 @@ const tocItems: TocItem[] = [
           subtext={`${entry.date} | ${entry.location}`}
         >
           <Collapsible client:load>
-            <ul class="list-disc list-inside space-y-2 text-justify mb-4">
-              {entry.details.map((detail: string) => (
-                <li>{detail}</li>
-              ))}
-            </ul>
+            <div>
+              <ul class="list-disc list-inside space-y-2 text-justify mb-4">
+                {entry.details.map((detail: string) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+            </div>
           </Collapsible>
           <Chip tags={entry.tags} />
           <hr
