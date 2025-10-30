@@ -1,0 +1,27 @@
+projects:
+  - owner: kuhlekt1v
+    repo: toolio
+    branch: main
+    slug: toolio
+    title: "Toolio"
+    featured: true
+    tags: ["Angular", "Ionic", "Supabase", "Stripe"]
+    sections:
+      overview: true
+      features: true
+      architecture: true
+      challenges: false
+      whats_next: fale 
+      links: false 
+
+generation:
+  tone: "indie hacker; professional, nerdy, approachable for non-technical readers"
+  target_word_count: 500-700
+  include_code_snippets: false
+  output_dir: "content/projects"
+  commit:
+    mode: "branch"
+    branch_prefix: "content/projects/"
+    one_pr_per_project: true
+  managed_regions:
+    enabled: true

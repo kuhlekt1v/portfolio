@@ -1,0 +1,113 @@
+name: AI generate project section
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Project slug from projects.config.yaml (e.g., toolio)"
+        required: true
+        type: string
+      section:
+        description: "Which section to write (overview|features|architecture|challenges|whats-next)"
+        required: true
+        type: choice
+        options:
+          - overview
+          - features
+          - architecture
+          - challenges
+          - whats-next
+      branchSuffix:
+        description: "Optional suffix for the branch name"
+        required: false
+        type: string
+      provider:
+        description: "AI provider: github|openai|anthropic"
+        required: false
+        default: "github"
+        type: choice
+        options:
+          - github
+          - openai
+          - anthropic
+      model:
+        description: "Model name (e.g., gpt-4o-mini, claude-3-5-sonnet-20241022)"
+        required: false
+        type: string
+        default: "gpt-4o-mini"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      # Provider selection: use one of these
+      PROVIDER: ${{ inputs.provider }} # github | openai | anthropic
+      MODEL: ${{ inputs.model }}
+
+      # When PROVIDER=github and you have GitHub Models enabled, your GITHUB_TOKEN works.
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # When PROVIDER=openai, set OPENAI_API_KEY in repo secrets.
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # When PROVIDER=anthropic, set ANTHROPIC_API_KEY in repo secrets.
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      DEFAULT_BRANCH: main
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ env.DEFAULT_BRANCH }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Compute branch name
+        id: name
+        run: |
+          DATE="$(date -u +'%Y%m%d-%H%M')"
+          BASE="content/projects/${{ inputs.slug }}-${DATE}"
+          if [ -n "${{ inputs.branchSuffix }}" ]; then
+            BRANCH="${BASE}-${{ inputs.branchSuffix }}"
+          else
+            BRANCH="${BASE}"
+          fi
+          echo "branch=${BRANCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Create and switch branch
+        run: git switch -c "${{ steps.name.outputs.branch }}"
+
+      - name: Generate AI section
+        env:
+          # Only this step needs the PAT for cross-repo reads
+          GITHUB_TOKEN: ${{ secrets.CONTENT_PAT }}
+        run: |
+          pnpm exec tsx scripts/ai-post-generate.ts \
+            --slug "${{ inputs.slug }}" \
+            --section "${{ inputs.section }}" \
+            --provider "${{ env.PROVIDER }}" \
+            --model "${{ env.MODEL }}"
+
+      - name: Commit and push (if changes)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(content): AI-generate '${{ inputs.section }}' for ${{ inputs.slug }}"
+            git push origin "${{ steps.name.outputs.branch }}"
+            echo "Branch pushed: ${{ steps.name.outputs.branch }}"
+          else
+            echo "No changes to commit."
+          fi
