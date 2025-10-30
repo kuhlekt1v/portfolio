@@ -116,7 +116,7 @@ async function fetchCodySite(
 function findProject(cfg: RootCfg, slug: string): ProjectCfg {
   const p = (cfg.projects || []).find((p) => p.slug === slug);
   if (!p)
-    throw new Error(`No project with slug '${slug}' in projects.config.yaml`);
+    throw new Error(`No project with slug '${slug}' in projects.config.yml`);
   return p;
 }
 
@@ -312,8 +312,9 @@ async function callLLM({
 }
 
 async function main() {
+  console.log("HIT");
   const rootCfg = await readYamlFile<RootCfg>(
-    path.resolve("projects.config.yaml"),
+    path.resolve("projects.config.yml"),
   );
   const project = findProject(rootCfg, slug);
   const repoMeta = await ghGet(`/repos/${project.owner}/${project.repo}`);
@@ -361,12 +362,6 @@ async function main() {
 
   const { fm, body: existingBody } = await ensureFrontmatter(mdPath, defaults);
 
-  // Wrap content in proper managed block formatting per sectioFiles in kuhlekt1v/portfolio:
-scripts/generate-project.ts
-scripts/ai-generate-section.ts
-.github/workflows/generate-project-content.yml
-.github/workflows/ai-generate-section.yml
-projects.config.yaml (output_dir: content/projects; target_word_count: 500–700)n type
   const contentForSection =
     section === "overview"
       ? `## Overview\n${text}`
