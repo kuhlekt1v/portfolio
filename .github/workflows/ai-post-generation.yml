@@ -35,6 +35,9 @@ on:
         required: false
         type: string
         default: "gpt-4o-mini"
+    push:
+      branches:
+        - feat/project-post-mcp
 
 permissions:
   contents: write
