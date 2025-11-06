@@ -3,7 +3,7 @@ title: GitHub Repo Sweeper
 slug: gh-repo-sweeper
 description: A lightweight command line utility for managing and cleaning up your GitHub repositories.
 longDescription: GitHub Repo Sweeper simplifies repository management for developers by enabling them to easily list, search, and delete repositories using an intuitive command-line interface.
-cardImage: "https:/codysheridan.com/gh-repo-sweeper.webp"
+cardImage: "http://codysheridan.com/gh-repo-sweeper.webp"
 tags: ["Python", "CLI", "GitHub"]
 githubUrl: https://github.com/kuhlekt1v/gh-repo-sweeper
 timestamp: 2025-11-06T01:58:44+00:00
@@ -32,4 +32,4 @@ The following enhancements are planned to further improve the Repo Sweeper:
 - [Repo Drill Down](https://github.com/kuhlekt1v/gh-repo-sweeper/issues/5): Add the ability to delve deeper into repositories, including viewing the project structure, last commit messages, and identifying primary contributors.
 - [Bundle & Distribute Package Without Requiring Python or Virtual Environments](https://github.com/kuhlekt1v/gh-repo-sweeper/issues/7): Create standalone executables for broader usability without environmental setup, using tools such as PyInstaller or PyOxidizer.
 
-We aim to deploy the CLI for broader usage and make it accessible via live environment distributions for individual users.
+Ultimately, I aim to deploy the CLI for broader usage and make it accessible via live environment distributions for individual users.
