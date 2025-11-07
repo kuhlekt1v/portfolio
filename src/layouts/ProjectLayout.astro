@@ -100,6 +100,22 @@ const { data: config } = await getConfigurationCollection();
           ) : null
         }
       </div>
+      <div class="flex items-center gap-2">
+        {
+          frontmatter.appStores?.apple && (
+            <a href={frontmatter.appStores.apple}>
+              <img src="/appstore-badge.png" class="h-12" />
+            </a>
+          )
+        }
+        {
+          frontmatter.appStores?.google && (
+            <a href={frontmatter.appStores.google}>
+              <img src="/google-play-badge.png" class="h-12" />
+            </a>
+          )
+        }
+      </div>
     </div>
     <div class="flex gap-2 mb-12">
       <img
