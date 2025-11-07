@@ -338,6 +338,13 @@ const project = defineCollection({
        * Whether the project is featured on the homepage.
        */
       featured: z.boolean().default(false),
+
+      appStores: z
+        .object({
+          apple: z.string().url().optional(),
+          google: z.string().url().optional(),
+        })
+        .optional(),
     })
     .transform((data) => {
       const slug =

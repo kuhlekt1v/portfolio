@@ -1,18 +1,22 @@
 projects:
   - owner: kuhlekt1v
+    repo: gh-repo-sweeper 
+    branch: main
+    slug: toolio
+    title: "Toolio"
+    featured: true
+    tags: ["Python", "CLI", "GitHub"]
+    live_link: false
+
+  - owner: kuhlekt1v
     repo: toolio
     branch: main
     slug: toolio
     title: "Toolio"
     featured: true
     tags: ["Angular", "Ionic", "Supabase", "Stripe"]
-    sections:
-      overview: true
-      features: true
-      architecture: true
-      challenges: false
-      whats_next: fale 
-      links: false 
+    live_link: true
+
 
 generation:
   tone: "indie hacker; professional, nerdy, approachable for non-technical readers"
