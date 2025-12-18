@@ -6,6 +6,7 @@ longDescription: kuhlekt1vOS is a browser-based operating system built for exper
 cardImage: "https://codysheridan.com/kuhlekt1vos.webp"
 tags: ["web-os", "typescript", "open-source", "cloud", "portfolio"]
 githubUrl: https://github.com/kuhlekt1v/Kuhlekt1vOS
+liveDemoUrl: https://kuhlekt1v.io
 timestamp: 2025-12-13T00:00:00+00:00
 featured: true
 ---
