@@ -15,7 +15,7 @@ kuhlekt1vOS is an experiment in bending the rules of what a “web app” is all
 
 Instead of porting traditional CLI tools into clunky browser UI equivalents, I’m building a system where real utilities run behind the scenes—powered by Azure Functions—but feel like native terminal tools inside a browser-based OS.
 
-At its core, kühlEkt1vOS is built on top of [**ProzillaOS**](https://os.prozilla.dev/docs/), a component-driven web desktop framework.
+At its core, kuhlekt1vOS is built on top of [**ProzillaOS**](https://os.prozilla.dev/docs/), a component-driven web desktop framework.
 
 ## The Features
 
