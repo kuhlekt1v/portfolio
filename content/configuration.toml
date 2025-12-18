@@ -2,7 +2,7 @@
 # we need to prefix all configuration keys with an underscore.
 
 [_.site]
-baseUrl = "http://codysheridan.com/"
+baseUrl = "http://codysheridan.com"
 
 [_.globalMeta]
 title = "Cody Sheridan"
